@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css" />
+    <meta name="description" content="description" />
+    <meta name="author" content="author" />
+    <meta name="keywords" content="keywords" />
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <section class="vh-100">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-md-8 col-lg-6 col-xl-4">
+            <h3 class="mb-4 pb-2 fw-normal">Check the weather forecast</h3>
+
+            <form method="POST">
+              {% csrf_token %}
+              <div class="input-group rounded mb-3">
+                <input
+                  type="text"
+                  name="city"
+                  class="form-control rounded"
+                  placeholder="{{placeholder}}"
+                  aria-label="Search"
+                  aria-describedby="search-addon"
+                  required
+                />
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </div>
+              <p>
+                &#8451;
+                <label class="switch">
+                  <input type="checkbox" name="temp" {{temp_convert}} />
+                  <span class="slider round"></span>
+                </label>
+                &#8457;
+              </p>
+            </form>
+
+            <div class="card shadow-0 border">
+              <div class="card-body p-4">
+                <h4 class="mb-1 sfw-normal">{{city}}</h4>
+                <p class="mb-2">
+                  Current temperature:
+                  <strong>{{temp}} {{temp_symbol | safe}}</strong>
+                </p>
+                <p>
+                  Feels like:
+                  <strong>{{feels_like}} {{temp_symbol | safe}}</strong>
+                </p>
+                <p>
+                  Max: <strong>{{temp_max}} {{temp_symbol | safe}}</strong>,
+                  Min:
+                  <strong>{{temp_min}} {{temp_symbol | safe}}</strong>
+                </p>
+
+                <div class="d-flex flex-row align-items-center">
+                  <p class="mb-0 me-4">{{description}}</p>
+                  <img
+                    src="http://openweathermap.org/img/w/{{icon}}.png"
+                    width="75px"
+                    height="75px"
+                    alt="Weather icon"
+                  />
+                </div>
+                <p>{{day}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
