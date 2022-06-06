@@ -3,6 +3,7 @@
 
 Simple weather forecast app written in Django. 
 
+<img src="https://i.imgur.com/UJROyQV.png" width="55%" height="55%"></img> 
 
 ## Features
 
