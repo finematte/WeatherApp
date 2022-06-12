@@ -5,6 +5,11 @@ Simple weather forecast app written in Django.
 
 <img src="https://i.imgur.com/UJROyQV.png" width="65%" height="65%"></img> 
 
+<details>
+  <summary>Front-end</summary>
+    App comes with beautiful back-end and even more beautiful front-end.
+</details>
+
 ## Features
 
 - Show weather forecast for given city
